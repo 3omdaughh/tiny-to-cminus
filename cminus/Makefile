@@ -12,6 +12,13 @@
 #   make test                   run all tests with both executables
 #   make clean                  remove generated files
 
+# Disable make's built-in rules. Otherwise make knows the rule
+# "%.c: %.l" and, whenever src/scan.l is newer than src/scan.c,
+# silently REGENERATES src/scan.c from scan.l with flex,
+# overwriting the hand-written scanner.
+MAKEFLAGS += --no-builtin-rules
+.SUFFIXES:
+
 CC      = gcc
 CFLAGS  = -Wall -Wextra -Iinclude -Ibuild
 LEX     = flex
