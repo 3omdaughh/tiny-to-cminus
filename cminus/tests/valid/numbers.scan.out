@@ -1,0 +1,34 @@
+
+C-MINUS COMPILATION: tests/valid/numbers.cm
+   1: 0 7 42 007 2147483647
+	1: NUM, val= 0
+	1: NUM, val= 7
+	1: NUM, val= 42
+	1: NUM, val= 007
+	1: NUM, val= 2147483647
+   2: x1 abc123
+	2: ID, name= x
+	2: NUM, val= 1
+	2: ID, name= abc
+	2: NUM, val= 123
+   3: a<=b a<b a=b a==b a!=b a>=b
+	3: ID, name= a
+	3: <=
+	3: ID, name= b
+	3: ID, name= a
+	3: <
+	3: ID, name= b
+	3: ID, name= a
+	3: =
+	3: ID, name= b
+	3: ID, name= a
+	3: ==
+	3: ID, name= b
+	3: ID, name= a
+	3: !=
+	3: ID, name= b
+	3: ID, name= a
+	3: >=
+	3: ID, name= b
+	4: EOF
+exit=0

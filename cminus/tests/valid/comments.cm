@@ -1,0 +1,7 @@
+/* single-line comment */
+int/* comment between tokens */x;
+/* multi-line
+   comment
+   spanning lines */
+y = 1; /* a /* b */ z = 2;
+/* stars ** inside * comment **/ w

@@ -1,0 +1,23 @@
+
+C-MINUS COMPILATION: tests/valid/comments.cm
+   1: /* single-line comment */
+   2: int/* comment between tokens */x;
+	2: reserved word: int
+	2: ID, name= x
+	2: ;
+   3: /* multi-line
+   4:    comment
+   5:    spanning lines */
+   6: y = 1; /* a /* b */ z = 2;
+	6: ID, name= y
+	6: =
+	6: NUM, val= 1
+	6: ;
+	6: ID, name= z
+	6: =
+	6: NUM, val= 2
+	6: ;
+   7: /* stars ** inside * comment **/ w
+	7: ID, name= w
+	8: EOF
+exit=0
