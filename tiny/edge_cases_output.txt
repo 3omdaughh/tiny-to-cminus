@@ -1,0 +1,21 @@
+
+TINY COMPILATION: edge_cases.tny
+   1: x1 := 5 # 3;
+	1: ID, name= x
+	1: NUM, val= 1
+	1: :=
+	1: NUM, val= 5
+	1: ERROR: #
+	1: NUM, val= 3
+	1: ;
+   2: y : 2;
+	2: ID, name= y
+	2: ERROR: :
+	2: NUM, val= 2
+	2: ;
+   3: IF If if
+	3: ID, name= IF
+	3: ID, name= If
+	3: reserved word: if
+   4: { never closed
+	5: EOF

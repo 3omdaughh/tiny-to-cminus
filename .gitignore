@@ -1,0 +1,10 @@
+# local notes / report material - not tracked
+docs/
+
+# build outputs
+tiny/tiny_scan
+*.o
+lex.yy.c
+*.tab.c
+*.tab.h
+*.output
