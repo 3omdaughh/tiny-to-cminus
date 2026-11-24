@@ -3,6 +3,17 @@
 /* Flex specification for the C-Minus scanner.      */
 /* Token definitions follow Appendix A.1 (Louden).  */
 /* Replaces the hand-written DFA in TINY's scan.c.  */
+/*                                                  */
+/* Course  : CS.411 Compiler Design                 */
+/* Team    :                                        */
+/*   Mohamed Emad Hamdi      200044096              */
+/*   AlOwida Elsayed         200042786              */
+/*   Seif Adel Elbasha       200046355              */
+/*   Amr Khaled Eid Diab     200045561              */
+/*   Ali Muhammad Hassan     200039403              */
+/*   Yousif Soliman Mohamed  200043875              */
+/* Date    : 25 November 2026                       */
+/* Modified: converted from TINY to C-Minus         */
 /****************************************************/
 
 /*======================================================
@@ -14,6 +25,8 @@
  *====================================================*/
 
 %{
+#include <errno.h>
+#include <limits.h>
 #include "globals.h"
 #include "util.h"
 #include "scan.h"
@@ -126,9 +139,25 @@ whitespace  [ \t\r]+
 "{"             { return LBRACE;   }
 "}"             { return RBRACE;   }
 
- /* ---- ID and NUM (A.1 rule 3) ---- */
-{number}        { return NUM; }
-{identifier}    { return ID;  }
+ /* ---- ID and NUM (A.1 rule 3) ----
+  * yylval carries the token's semantic value to the parser:
+  * the integer value of a NUM, the spelling of an ID. */
+{number}        {
+                  long value;
+                  errno = 0;
+                  value = strtol(yytext, NULL, 10);
+                  if (errno == ERANGE || value > INT_MAX)
+                  {
+                      reportLexError("integer constant too large");
+                      return ERROR;
+                  }
+                  yylval.value = (int) value;
+                  return NUM;
+                }
+{identifier}    {
+                  yylval.name = copyString(yytext);
+                  return ID;
+                }
 
  /* ---- white space (A.1 rule 4) ---- */
 \n              { lineno++; }
@@ -213,6 +242,10 @@ TokenType getToken(void)
         reportLexError(message);
         currentToken = ERROR;
     }
+
+    /* yylloc: the token's location, read by the parser as
+     * @n in grammar actions and by yyerror() */
+    yylloc.first_line = yylloc.last_line = lineno;
 
     if (TraceScan)
     {

@@ -1,0 +1,26 @@
+/* arrays, array parameters, while, nested blocks,
+   empty statement, return with and without value */
+int a[10];
+
+int sum(int v[], int n)
+{ int i; int s;
+  i = 0; s = 0;
+  while (i < n)
+  { s = s + v[i];
+    i = i + 1;
+  }
+  return s;
+}
+
+void fill(void)
+{ int i;
+  i = 0;
+  while (i < 10) { a[i] = i * i; i = i + 1; }
+  { { ; } }
+  return;
+}
+
+void main(void)
+{ fill();
+  output(sum(a, 10));
+}

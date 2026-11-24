@@ -1,0 +1,4 @@
+void main(void)
+{ int a;
+  if (a < 1 < 2) a = 0;
+}

@@ -1,0 +1,94 @@
+
+C-MINUS COMPILATION: tests/valid/arrays_loops.cm
+   1: /* arrays, array parameters, while, nested blocks,
+   2:    empty statement, return with and without value */
+   3: int a[10];
+   4: 
+   5: int sum(int v[], int n)
+   6: { int i; int s;
+   7:   i = 0; s = 0;
+   8:   while (i < n)
+   9:   { s = s + v[i];
+  10:     i = i + 1;
+  11:   }
+  12:   return s;
+  13: }
+  14: 
+  15: void fill(void)
+  16: { int i;
+  17:   i = 0;
+  18:   while (i < 10) { a[i] = i * i; i = i + 1; }
+  19:   { { ; } }
+  20:   return;
+  21: }
+  22: 
+  23: void main(void)
+  24: { fill();
+  25:   output(sum(a, 10));
+  26: }
+
+Syntax tree:
+  Variable declaration: a[10] (type int) [line 3]
+  Function declaration: sum (returns int) [line 5]
+    Parameter: v[] (type int)
+    Parameter: n (type int)
+    Compound statement [line 6]
+      Variable declaration: i (type int) [line 6]
+      Variable declaration: s (type int) [line 6]
+      Assign
+        Id: i
+        Const: 0
+      Assign
+        Id: s
+        Const: 0
+      While [line 8]
+        Op: <
+          Id: i
+          Id: n
+        Compound statement [line 9]
+          Assign
+            Id: s
+            Op: +
+              Id: s
+              Array element: v
+                Id: i
+          Assign
+            Id: i
+            Op: +
+              Id: i
+              Const: 1
+      Return [line 12]
+        Id: s
+  Function declaration: fill (returns void) [line 15]
+    Compound statement [line 16]
+      Variable declaration: i (type int) [line 16]
+      Assign
+        Id: i
+        Const: 0
+      While [line 18]
+        Op: <
+          Id: i
+          Const: 10
+        Compound statement [line 18]
+          Assign
+            Array element: a
+              Id: i
+            Op: *
+              Id: i
+              Id: i
+          Assign
+            Id: i
+            Op: +
+              Id: i
+              Const: 1
+      Compound statement [line 19]
+        Compound statement [line 19]
+      Return [line 20]
+  Function declaration: main (returns void) [line 23]
+    Compound statement [line 24]
+      Call: fill
+      Call: output
+        Call: sum
+          Id: a
+          Const: 10
+exit=0

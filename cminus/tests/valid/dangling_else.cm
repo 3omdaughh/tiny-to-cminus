@@ -1,0 +1,5 @@
+/* else belongs to the NEAREST if */
+void main(void)
+{ int x; int y;
+  if (x) if (y) x = 1; else x = 2;
+}

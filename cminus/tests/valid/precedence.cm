@@ -1,0 +1,9 @@
+/* operator precedence and associativity */
+void main(void)
+{ int a; int b; int c;
+  a = b = c;          /* right assoc: a = (b = c)     */
+  a = a - b - c;      /* left assoc:  (a - b) - c     */
+  a = a + b * c;      /* * before +:  a + (b * c)     */
+  a = (a + b) * c;    /* parentheses override         */
+  a = a + 1 < b * 2;  /* relop lowest: (a+1) < (b*2)  */
+}

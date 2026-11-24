@@ -1,0 +1,11 @@
+
+C-MINUS COMPILATION: tests/invalid/unterminated_comment.cm
+   1: int x;
+   2: /* this comment
+   3:    is never closed
+   4: x = 1;
+Lexical error at line 5: unterminated comment (opened at line 2)
+Syntax error at line 5: unexpected illegal token, expecting end of file
+
+Parsing stopped: errors were found.
+exit=1

@@ -12,3 +12,4 @@ lex.yy.c
 # C-Minus build outputs
 cminus/build/
 cminus/cminus
+cminus/cminus_hand

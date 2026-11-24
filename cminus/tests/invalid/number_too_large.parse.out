@@ -1,0 +1,8 @@
+
+C-MINUS COMPILATION: tests/invalid/number_too_large.cm
+   1: int a[2147483648];
+Lexical error at line 1: integer constant too large
+Syntax error at line 1: unexpected illegal token, expecting number
+
+Parsing stopped: errors were found.
+exit=1

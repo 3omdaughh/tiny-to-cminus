@@ -1,0 +1,54 @@
+
+C-MINUS COMPILATION: tests/valid/precedence.cm
+   1: /* operator precedence and associativity */
+   2: void main(void)
+   3: { int a; int b; int c;
+   4:   a = b = c;          /* right assoc: a = (b = c)     */
+   5:   a = a - b - c;      /* left assoc:  (a - b) - c     */
+   6:   a = a + b * c;      /* * before +:  a + (b * c)     */
+   7:   a = (a + b) * c;    /* parentheses override         */
+   8:   a = a + 1 < b * 2;  /* relop lowest: (a+1) < (b*2)  */
+   9: }
+
+Syntax tree:
+  Function declaration: main (returns void) [line 2]
+    Compound statement [line 3]
+      Variable declaration: a (type int) [line 3]
+      Variable declaration: b (type int) [line 3]
+      Variable declaration: c (type int) [line 3]
+      Assign
+        Id: a
+        Assign
+          Id: b
+          Id: c
+      Assign
+        Id: a
+        Op: -
+          Op: -
+            Id: a
+            Id: b
+          Id: c
+      Assign
+        Id: a
+        Op: +
+          Id: a
+          Op: *
+            Id: b
+            Id: c
+      Assign
+        Id: a
+        Op: *
+          Op: +
+            Id: a
+            Id: b
+          Id: c
+      Assign
+        Id: a
+        Op: <
+          Op: +
+            Id: a
+            Const: 1
+          Op: *
+            Id: b
+            Const: 2
+exit=0

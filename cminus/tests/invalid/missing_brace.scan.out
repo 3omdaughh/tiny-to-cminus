@@ -1,0 +1,26 @@
+
+C-MINUS COMPILATION: tests/invalid/missing_brace.cm
+   1: int f(int x)
+	1: reserved word: int
+	1: ID, name= f
+	1: (
+	1: reserved word: int
+	1: ID, name= x
+	1: )
+   2: { if (x > 0)
+	2: {
+	2: reserved word: if
+	2: (
+	2: ID, name= x
+	2: >
+	2: NUM, val= 0
+	2: )
+   3:   { return x;
+	3: {
+	3: reserved word: return
+	3: ID, name= x
+	3: ;
+   4: }
+	4: }
+	5: EOF
+exit=0

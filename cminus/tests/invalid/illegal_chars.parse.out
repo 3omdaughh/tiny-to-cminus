@@ -1,0 +1,8 @@
+
+C-MINUS COMPILATION: tests/invalid/illegal_chars.cm
+   1: int x@;
+Lexical error at line 1: illegal character '@'
+Syntax error at line 1: unexpected illegal token, expecting ; or ( or [
+
+Parsing stopped: errors were found.
+exit=1
