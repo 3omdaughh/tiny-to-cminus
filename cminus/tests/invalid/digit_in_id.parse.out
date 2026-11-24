@@ -1,8 +1,0 @@
-
-C-MINUS COMPILATION: tests/invalid/digit_in_id.cm
-   1: void main(void)
-   2: { int x1;
-Syntax error at line 2: unexpected number, expecting ; or [
-
-Parsing stopped: errors were found.
-exit=1

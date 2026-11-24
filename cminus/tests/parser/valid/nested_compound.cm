@@ -1,0 +1,12 @@
+/* category 13: nested compound statements with local declarations */
+void main(void)
+{ int a;
+  { int b;
+    { int c;
+      c = a + b;
+      { }
+    }
+    b = 1;
+  }
+  a = 2;
+}

@@ -1,0 +1,5 @@
+/* only a var may appear left of "=" (A.2 rule 18) */
+void main(void)
+{ int x;
+  x + 1 = 5;
+}

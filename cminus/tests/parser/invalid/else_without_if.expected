@@ -1,0 +1,9 @@
+
+C-MINUS COMPILATION: tests/parser/invalid/else_without_if.cm
+   1: void main(void)
+   2: { int x;
+   3:   else x = 1;
+Syntax error at line 3: unexpected else
+
+Parsing stopped: errors were found.
+exit=1

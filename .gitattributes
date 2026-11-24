@@ -1,0 +1,3 @@
+# test inputs/outputs must stay byte-exact (whitespace.cm contains a CRLF line)
+cminus/tests/**/*.cm -text
+cminus/tests/**/*.expected -text

@@ -1,0 +1,54 @@
+
+C-MINUS COMPILATION: tests/parser/valid/iteration.cm
+   1: /* category 11: while loops, nested loops, loop with empty body */
+   2: void main(void)
+   3: { int i; int j; int m[10];
+   4:   i = 0;
+   5:   while (i < 10)
+   6:   { j = 0;
+   7:     while (j < i)
+   8:       j = j + 1;
+   9:     m[i] = j;
+  10:     i = i + 1;
+  11:   }
+  12:   while (0) ;
+  13: }
+
+Syntax tree:
+  Function declaration: main (returns void) [line 2]
+    Compound statement [line 3]
+      Variable declaration: i (type int) [line 3]
+      Variable declaration: j (type int) [line 3]
+      Variable declaration: m[10] (type int) [line 3]
+      Assign
+        Id: i
+        Const: 0
+      While [line 5]
+        Op: <
+          Id: i
+          Const: 10
+        Compound statement [line 6]
+          Assign
+            Id: j
+            Const: 0
+          While [line 7]
+            Op: <
+              Id: j
+              Id: i
+            Assign
+              Id: j
+              Op: +
+                Id: j
+                Const: 1
+          Assign
+            Array element: m
+              Id: i
+            Id: j
+          Assign
+            Id: i
+            Op: +
+              Id: i
+              Const: 1
+      While [line 12]
+        Const: 0
+exit=0

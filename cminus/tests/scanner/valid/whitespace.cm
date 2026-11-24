@@ -1,0 +1,6 @@
+/* white space: blanks, tabs, blank lines, CRLF */
+	int		x ;
+
+
+   int    y;
+x=y;x	=	y  ;

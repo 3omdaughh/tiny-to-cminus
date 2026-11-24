@@ -1,0 +1,79 @@
+
+C-MINUS COMPILATION: tests/parser/valid/functions.cm
+   1: /* categories 7, 8, 12: function declarations, parameters,
+   2:    arguments, return statements */
+   3: void noParams(void) { }
+   4: 
+   5: int one(int a) { return a; }
+   6: 
+   7: int many(int a, int b[], int c) { return a + b[c]; }
+   8: 
+   9: void early(int n)
+  10: { if (n < 0) return;
+  11:   output(n);
+  12: }
+  13: 
+  14: int nested(int x)
+  15: { return one(many(x, list, one(x))) * 2; }
+  16: 
+  17: int list[3];
+  18: 
+  19: void main(void)
+  20: { noParams();
+  21:   early(one(5));
+  22:   output(nested(1));
+  23:   input();
+  24: }
+
+Syntax tree:
+  Function declaration: noParams (returns void) [line 3]
+    Compound statement [line 3]
+  Function declaration: one (returns int) [line 5]
+    Parameter: a (type int)
+    Compound statement [line 5]
+      Return [line 5]
+        Id: a
+  Function declaration: many (returns int) [line 7]
+    Parameter: a (type int)
+    Parameter: b[] (type int)
+    Parameter: c (type int)
+    Compound statement [line 7]
+      Return [line 7]
+        Op: +
+          Id: a
+          Array element: b
+            Id: c
+  Function declaration: early (returns void) [line 9]
+    Parameter: n (type int)
+    Compound statement [line 10]
+      If [line 10]
+        Op: <
+          Id: n
+          Const: 0
+        Return [line 10]
+      Call: output
+        Id: n
+  Function declaration: nested (returns int) [line 14]
+    Parameter: x (type int)
+    Compound statement [line 15]
+      Return [line 15]
+        Op: *
+          Call: one
+            Call: many
+              Id: x
+              Id: list
+              Call: one
+                Id: x
+          Const: 2
+  Variable declaration: list[3] (type int) [line 17]
+  Function declaration: main (returns void) [line 19]
+    Compound statement [line 20]
+      Call: noParams
+      Call: early
+        Call: one
+          Const: 5
+      Call: output
+        Call: nested
+          Const: 1
+      Call: input
+exit=0

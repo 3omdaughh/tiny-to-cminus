@@ -1,0 +1,8 @@
+
+C-MINUS COMPILATION: tests/parser/invalid/array_init.cm
+   1: /* C-Minus has no initializers */
+   2: int x = 5;
+Syntax error at line 2: unexpected =, expecting ; or ( or [
+
+Parsing stopped: errors were found.
+exit=1

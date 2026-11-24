@@ -1,7 +1,0 @@
-
-C-MINUS COMPILATION: tests/invalid/lone_bang.cm
-   1: if (!x) y = 1;
-Syntax error at line 1: unexpected if, expecting int or void
-
-Parsing stopped: errors were found.
-exit=1

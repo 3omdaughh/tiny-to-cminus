@@ -1,0 +1,11 @@
+/* category 6: variable declarations (global and local, scalar and array) */
+int x;
+int list[100];
+void v;          /* syntactically legal; "void variable" is a semantic error, out of scope */
+
+void main(void)
+{ int a;
+  int b[5];
+  int c;
+  a = 0;
+}

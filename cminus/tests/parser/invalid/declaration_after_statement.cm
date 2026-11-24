@@ -1,0 +1,6 @@
+/* A.2 rule 10: local declarations must come before statements */
+void main(void)
+{ int x;
+  x = 1;
+  int y;
+}

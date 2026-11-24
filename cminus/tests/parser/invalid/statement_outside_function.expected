@@ -1,0 +1,8 @@
+
+C-MINUS COMPILATION: tests/parser/invalid/statement_outside_function.cm
+   1: int x;
+   2: x = 5;
+Syntax error at line 2: unexpected identifier, expecting end of file
+
+Parsing stopped: errors were found.
+exit=1

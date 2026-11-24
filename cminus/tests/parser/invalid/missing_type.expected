@@ -1,0 +1,7 @@
+
+C-MINUS COMPILATION: tests/parser/invalid/missing_type.cm
+   1: main(void)
+Syntax error at line 1: unexpected identifier, expecting int or void
+
+Parsing stopped: errors were found.
+exit=1

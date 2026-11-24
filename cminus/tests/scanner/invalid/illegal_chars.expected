@@ -1,0 +1,45 @@
+
+C-MINUS COMPILATION: tests/scanner/invalid/illegal_chars.cm
+   1: int x@;
+	1: reserved word: int
+	1: ID, name= x
+Lexical error at line 1: illegal character '@'
+	1: ERROR: @
+	1: ;
+   2: x = y # 2 $ z;
+	2: ID, name= x
+	2: =
+	2: ID, name= y
+Lexical error at line 2: illegal character '#'
+	2: ERROR: #
+	2: NUM, val= 2
+Lexical error at line 2: illegal character '$'
+	2: ERROR: $
+	2: ID, name= z
+	2: ;
+   3: my_var = 3.5;
+	3: ID, name= my
+Lexical error at line 3: illegal character '_'
+	3: ERROR: _
+	3: ID, name= var
+	3: =
+	3: NUM, val= 3
+Lexical error at line 3: illegal character '.'
+	3: ERROR: .
+	3: NUM, val= 5
+	3: ;
+   4: x && y || z;
+	4: ID, name= x
+Lexical error at line 4: illegal character '&'
+	4: ERROR: &
+Lexical error at line 4: illegal character '&'
+	4: ERROR: &
+	4: ID, name= y
+Lexical error at line 4: illegal character '|'
+	4: ERROR: |
+Lexical error at line 4: illegal character '|'
+	4: ERROR: |
+	4: ID, name= z
+	4: ;
+	5: EOF
+exit=1

@@ -1,0 +1,9 @@
+
+C-MINUS COMPILATION: tests/parser/invalid/unbalanced_parens.cm
+   1: void main(void)
+   2: { int x;
+   3:   x = (1 + 2;
+Syntax error at line 3: unexpected ;, expecting )
+
+Parsing stopped: errors were found.
+exit=1

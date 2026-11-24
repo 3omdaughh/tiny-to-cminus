@@ -1,9 +1,0 @@
-
-C-MINUS COMPILATION: tests/invalid/too_long.cm
-   1: int abcdefghijabcdefghijabcdefghijabcdefghijX;
-	1: reserved word: int
-Lexical error at line 1: token too long (41 characters, maximum is 40)
-	1: ERROR: abcdefghijabcdefghijabcdefghijabcdefghij
-	1: ;
-	2: EOF
-exit=1

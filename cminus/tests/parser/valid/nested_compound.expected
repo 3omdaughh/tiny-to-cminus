@@ -1,0 +1,36 @@
+
+C-MINUS COMPILATION: tests/parser/valid/nested_compound.cm
+   1: /* category 13: nested compound statements with local declarations */
+   2: void main(void)
+   3: { int a;
+   4:   { int b;
+   5:     { int c;
+   6:       c = a + b;
+   7:       { }
+   8:     }
+   9:     b = 1;
+  10:   }
+  11:   a = 2;
+  12: }
+
+Syntax tree:
+  Function declaration: main (returns void) [line 2]
+    Compound statement [line 3]
+      Variable declaration: a (type int) [line 3]
+      Compound statement [line 4]
+        Variable declaration: b (type int) [line 4]
+        Compound statement [line 5]
+          Variable declaration: c (type int) [line 5]
+          Assign
+            Id: c
+            Op: +
+              Id: a
+              Id: b
+          Compound statement [line 7]
+        Assign
+          Id: b
+          Const: 1
+      Assign
+        Id: a
+        Const: 2
+exit=0

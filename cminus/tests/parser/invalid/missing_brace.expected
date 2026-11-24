@@ -1,0 +1,10 @@
+
+C-MINUS COMPILATION: tests/parser/invalid/missing_brace.cm
+   1: int f(int x)
+   2: { if (x > 0)
+   3:   { return x;
+   4: }
+Syntax error at line 5: unexpected end of file
+
+Parsing stopped: errors were found.
+exit=1

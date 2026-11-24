@@ -1,0 +1,7 @@
+
+C-MINUS COMPILATION: tests/parser/invalid/keyword_as_identifier.cm
+   1: int while;
+Syntax error at line 1: unexpected while, expecting identifier
+
+Parsing stopped: errors were found.
+exit=1

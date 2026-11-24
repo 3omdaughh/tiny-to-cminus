@@ -9,6 +9,7 @@
 #   make run  FILE=x.cm         scan + parse x.cm, print syntax tree
 #   make scan FILE=x.cm         scanner only, print tokens
 #   make ... SCANNER=hand       use cminus_hand instead of cminus
+#   make test                   run all tests with both executables
 #   make clean                  remove generated files
 
 CC      = gcc
@@ -17,7 +18,7 @@ LEX     = flex
 YACC    = bison
 
 BUILD   = build
-FILE   ?= tests/valid/gcd.cm
+FILE   ?= tests/parser/valid/gcd.cm
 SCANNER ?= flex
 
 ifeq ($(SCANNER),hand)
@@ -66,7 +67,10 @@ run: all
 scan: all
 	$(EXE) -s $(FILE)
 
+test: all
+	./tests/run_tests.sh
+
 clean:
 	rm -rf $(BUILD) cminus cminus_hand
 
-.PHONY: all run scan clean
+.PHONY: all run scan test clean

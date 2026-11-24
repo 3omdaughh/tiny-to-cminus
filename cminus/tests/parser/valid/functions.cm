@@ -1,0 +1,24 @@
+/* categories 7, 8, 12: function declarations, parameters,
+   arguments, return statements */
+void noParams(void) { }
+
+int one(int a) { return a; }
+
+int many(int a, int b[], int c) { return a + b[c]; }
+
+void early(int n)
+{ if (n < 0) return;
+  output(n);
+}
+
+int nested(int x)
+{ return one(many(x, list, one(x))) * 2; }
+
+int list[3];
+
+void main(void)
+{ noParams();
+  early(one(5));
+  output(nested(1));
+  input();
+}

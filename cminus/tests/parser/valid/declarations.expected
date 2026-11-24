@@ -1,0 +1,27 @@
+
+C-MINUS COMPILATION: tests/parser/valid/declarations.cm
+   1: /* category 6: variable declarations (global and local, scalar and array) */
+   2: int x;
+   3: int list[100];
+   4: void v;          /* syntactically legal; "void variable" is a semantic error, out of scope */
+   5: 
+   6: void main(void)
+   7: { int a;
+   8:   int b[5];
+   9:   int c;
+  10:   a = 0;
+  11: }
+
+Syntax tree:
+  Variable declaration: x (type int) [line 2]
+  Variable declaration: list[100] (type int) [line 3]
+  Variable declaration: v (type void) [line 4]
+  Function declaration: main (returns void) [line 6]
+    Compound statement [line 7]
+      Variable declaration: a (type int) [line 7]
+      Variable declaration: b[5] (type int) [line 8]
+      Variable declaration: c (type int) [line 9]
+      Assign
+        Id: a
+        Const: 0
+exit=0

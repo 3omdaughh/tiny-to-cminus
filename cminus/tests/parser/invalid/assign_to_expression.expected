@@ -1,0 +1,10 @@
+
+C-MINUS COMPILATION: tests/parser/invalid/assign_to_expression.cm
+   1: /* only a var may appear left of "=" (A.2 rule 18) */
+   2: void main(void)
+   3: { int x;
+   4:   x + 1 = 5;
+Syntax error at line 4: unexpected =, expecting ;
+
+Parsing stopped: errors were found.
+exit=1

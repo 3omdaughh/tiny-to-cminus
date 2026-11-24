@@ -1,0 +1,75 @@
+
+C-MINUS COMPILATION: tests/parser/valid/conditionals.cm
+   1: /* category 10: if, if-else, chained else-if, every relational operator */
+   2: void main(void)
+   3: { int a; int b;
+   4:   if (a < b) a = 1;
+   5:   if (a <= b) a = 2; else a = 3;
+   6:   if (a > b) a = 4;
+   7:   else if (a >= b) a = 5;
+   8:   else if (a == b) a = 6;
+   9:   else if (a != b) a = 7;
+  10:   if (a) { a = 8; b = 9; } else { }
+  11: }
+
+Syntax tree:
+  Function declaration: main (returns void) [line 2]
+    Compound statement [line 3]
+      Variable declaration: a (type int) [line 3]
+      Variable declaration: b (type int) [line 3]
+      If [line 4]
+        Op: <
+          Id: a
+          Id: b
+        Assign
+          Id: a
+          Const: 1
+      If (with else) [line 5]
+        Op: <=
+          Id: a
+          Id: b
+        Assign
+          Id: a
+          Const: 2
+        Assign
+          Id: a
+          Const: 3
+      If (with else) [line 6]
+        Op: >
+          Id: a
+          Id: b
+        Assign
+          Id: a
+          Const: 4
+        If (with else) [line 7]
+          Op: >=
+            Id: a
+            Id: b
+          Assign
+            Id: a
+            Const: 5
+          If (with else) [line 8]
+            Op: ==
+              Id: a
+              Id: b
+            Assign
+              Id: a
+              Const: 6
+            If [line 9]
+              Op: !=
+                Id: a
+                Id: b
+              Assign
+                Id: a
+                Const: 7
+      If (with else) [line 10]
+        Id: a
+        Compound statement [line 10]
+          Assign
+            Id: a
+            Const: 8
+          Assign
+            Id: b
+            Const: 9
+        Compound statement [line 10]
+exit=0

@@ -1,7 +1,0 @@
-
-C-MINUS COMPILATION: tests/invalid/array_size_not_num.cm
-   1: int a[n];
-Syntax error at line 1: unexpected identifier, expecting number
-
-Parsing stopped: errors were found.
-exit=1

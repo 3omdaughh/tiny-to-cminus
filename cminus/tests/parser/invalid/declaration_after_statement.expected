@@ -1,0 +1,11 @@
+
+C-MINUS COMPILATION: tests/parser/invalid/declaration_after_statement.cm
+   1: /* A.2 rule 10: local declarations must come before statements */
+   2: void main(void)
+   3: { int x;
+   4:   x = 1;
+   5:   int y;
+Syntax error at line 5: unexpected int
+
+Parsing stopped: errors were found.
+exit=1
